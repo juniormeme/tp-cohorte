@@ -1,7 +1,7 @@
 import psutil
 import smtplib
 from email.message import EmailMessage
-
+from email.utils import formatdate, make_msgid
 def afficher_informations_systeme():
     response = ""
     # Informations sur la mémoire
@@ -34,6 +34,8 @@ def envoyer_email(destinataire, sujet, contenu):
     message['From'] = utilisateur_smtp
     message['To'] = destinataire
     message['Subject'] = sujet
+    message['Date'] = formatdate(localtime=True)
+    message['Message-ID'] = make_msgid()
     message.set_content(contenu)
 
     # Connexion au serveur SMTP
