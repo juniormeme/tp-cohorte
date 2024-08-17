@@ -5,9 +5,11 @@ const app = express();
 const port = 5000;
 
 // Route pour la page d'accueil
-app.get('/user', (req, res) => {
-  res.sendFile('/home/ec2-user/webApp/admin.html')
-  console.log('Tout fonctionne normalement');
+app.get('/check', (req, res) => {
+  const hostname = req.hostname;
+  const name = res.hostname
+  res.send('Ok');
+  console.log('checked ok');
 });
 
 // Route par défaut (tout le reste)
