@@ -1,4 +1,3 @@
-from telnetlib import IP
 from scapy.all import *
 import os
 from collections import defaultdict
