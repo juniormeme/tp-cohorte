@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 # Information 
 #Le present code banit une addresse IP lorsque elle effectue plus de 1000 requetes simulatés en moins de 1 secondes
+=======
+# Information 
+#Le present code banit une addresse IP lorsque elle effectue plus de 1000 requetes simulatés en moins de 1 secondes
+>>>>>>> bfb0e8850ac947cb76a8109990c7b90e0d8ec883
