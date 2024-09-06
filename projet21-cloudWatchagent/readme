@@ -1,0 +1,22 @@
+# Crée un IAM role pour le SSM/cloudWatch
+1. Creer un  IAM role avec un policy de confiance 
+2. Ajouter comme policy : 
+    cloudWatchAgentServerPolicy 
+    AmazonSSManagedInstance
+3. Nommé le IAM role cloudWatchAgentInstanceRole
+
+4.  Lancé une instance EC2 et l'attacher le role
+
+#  Installé l'agent cloudWatch avec le ssh
+1. choisir le aws-configureAWSPackage
+2. sous le nom entrer AmazonCloudWatchAgent 
+3. Installé collectd
+avec sudo amazon-linux-extras install collectd
+4. executer l'installateur sur l'EC2 en ligne de commande 
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+5. Durant l'installation on spécifie la localisation de nos logs files
+/var/log/messages
+6. executez la commande :
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s 
+7. apres on se rassure que l'agent est lancé 
+sudo systemctl start amazon-cloudwatch-agent
